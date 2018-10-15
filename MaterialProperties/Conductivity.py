@@ -7,6 +7,7 @@ Adding Material Properties files/library's myself
 '''
 
 def Inconel_718(T):
+    # (UNS N107718)
     # [W/(m-K)]
     a = -8.28921
     b =  39.4470
@@ -23,6 +24,7 @@ def Inconel_718(T):
     return ans
 
 def AL_ALY_1100(T):
+    # (UNS A91100)
     # [W/(m-K)]
     a= 23.39172
     b= - 148.5733
@@ -40,6 +42,8 @@ def AL_ALY_1100(T):
 
 
 def AL_ALY_3003(T):
+    # forget what this one means (-F)
+    # (UNS A93003)
     # [W/(m-K)]
     a= 0.63736
     b= -1.1437
@@ -58,6 +62,8 @@ def AL_ALY_3003(T):
 
 
 def AL_ALY_5083(T):
+    # Annealed (-O)
+    # (UNS A95083)
     # [W/(m-K)]
     a= -0.90933
     b= 5.751
@@ -75,7 +81,8 @@ def AL_ALY_5083(T):
     return ans
 
 
-def AL_ALY_6061_T6(T):
+def AL_ALY_6061(T):
+    # Heat treated (-T6)
     # [W/(m-K)]
     a=0.07918
     b=1.0957
@@ -92,7 +99,9 @@ def AL_ALY_6061_T6(T):
     ans = 10**(y1+y2)
     return ans
 
-def AL_ALY_6063_T5(T):
+def AL_ALY_6063(T):
+    # Heat Treated (-T5)
+    #
     # [W/(m-K)]
     a=22.401433
     b=-141.13433

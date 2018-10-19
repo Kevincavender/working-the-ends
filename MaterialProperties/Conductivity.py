@@ -252,19 +252,42 @@ def Balsa_lowdensity(T):
 '''
 #-------------------------------------------bleh
 #script for testing and plotting each function
+
 StartT = 6
 EndT = 300
 Step = floor(fabs(StartT-EndT)+1)
 print(Step)
-T = np.linspace(StartT,EndT,Step)
-K = np.zeros((Step,1))
+T = np.linspace(StartT,EndT,int(Step))
+K=np.zeros((Step,1))
+K1=np.zeros((Step,1))
+K2=np.zeros((Step,1))
+K3=np.zeros((Step,1))
+K4=np.zeros((Step,1))
+K5=np.zeros((Step,1))
 #print(T)
 for i in range(len(K)):
-    K[i] = AL_ALY_5083(T[i])
-    #print(T[i], K[i][0])
-#K = Inconel_718(T)
-#print(K)
-figure = plt.figure()
-ax = figure.add_subplot(111)
-ax.plot(T,K)
+    K1[i] = AL_ALY_5083(T[i])
+    K2[i] = AL_ALY_1100(T[i])
+    K3[i] = AL_ALY_3003(T[i])
+    K4[i] = AL_ALY_6061(T[i])
+    K5[i] = AL_ALY_6063(T[i])
+fig = plt.figure()
+fig.add_axes()
+ax1 = fig.add_subplot(111)
+ax1.plot(T,K1,T,K2,T,K3,T,K4,T,K5)
+ax1.set(title="Aluminum Thermal Conductivity",
+        ylabel='Conductivity [W/m-K]',
+        xlabel='Temperature [Kelvin]')
+ax1.legend(loc='best')
+"""
+ax1 = fig.add_subplot(221)
+ax2 = fig.add_subplot(222)
+ax3 = fig.add_subplot(223)
+ax4 = fig.add_subplot(224)
+
+ax1.plot(T,K1)
+ax2.plot(T,K2,color='blue')
+ax3.plot(T,K3,color='green')
+ax4.plot(T,K4,color='brown')
+"""
 plt.show()
